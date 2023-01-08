@@ -1,0 +1,46 @@
+.form {
+  margin-bottom: 2rem;
+}
+
+.lostpassword {
+  display: inline-block;
+  color: #666;
+  padding: 0.5rem 0;
+  line-height: 1;
+}
+.lostpassword::after {
+  content: '';
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  display: block;
+}
+
+.cadastro {
+  margin-top: 3rem;
+}
+.cadastro p {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.subtitle {
+  font-family: var(--type-second);
+  line-height: 1;
+  font-size: 2rem;
+}
+
+.subtitle::after {
+  content: '';
+  display: block;
+  background: #ddd;
+  height: 0.5rem;
+  width: 3rem;
+  border-radius: 0.2rem;
+}
+
+.logEntrar {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
