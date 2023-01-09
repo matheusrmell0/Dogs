@@ -29,5 +29,6 @@
   background: url('../Assets/usuario.svg') no-repeat center center;
   margin-left: 0.5rem;
   position: relative;
+  scale: 120%;
   top: -1px;
 }
