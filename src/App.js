@@ -9,7 +9,7 @@ import User from './Components/User/User';
 import { UserStorage } from './UserContext';
 import ProtectedRoute from './Components/Helper/ProtectedRoute';
 
-const App = () => {
+const App = () => {   
   return (
     <>
       <BrowserRouter>

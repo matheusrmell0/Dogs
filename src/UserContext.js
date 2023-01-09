@@ -10,6 +10,7 @@ export const UserStorage = ({ children }) => {
   const [login, setLogin] = React.useState(null);
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState(null);
+  const [target, setTarget] = React.useState(null);
 
   const userLogout = React.useCallback(
     async function () {
@@ -72,9 +73,17 @@ export const UserStorage = ({ children }) => {
     }
   }
 
+  React.useEffect(() => {
+    function outSideClick(event) {
+      setTarget(event.target);
+    }
+    window.addEventListener('click', outSideClick);
+    return () => window.removeEventListener('click', outSideClick);
+  }, []);
+
   return (
     <UserContext.Provider
-      value={{ userLogin, userLogout, data, error, loading, login }}
+      value={{ userLogin, userLogout, data, error, loading, login, target }}
     >
       {children}
     </UserContext.Provider>

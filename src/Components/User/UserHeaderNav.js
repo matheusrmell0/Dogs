@@ -11,17 +11,23 @@ import styles from './UserHeaderNav.module.css';
 const UserHeaderNav = () => {
   const { mobile } = useMedia('(max-width: 54rem)');
   const [mobileMenu, setMobileMenu] = React.useState(false);
-  const { userLogout } = React.useContext(UserContext);
+  const { userLogout, target } = React.useContext(UserContext);
   const { pathname } = useLocation();
+  const ref = React.useRef();
 
   React.useEffect(() => {
     setMobileMenu(false);
   }, [pathname]);
 
+  React.useEffect(() => {
+    if (ref.current !== target) setMobileMenu(false);
+  }, [target]);
+
   return (
     <>
       {mobile && (
         <button
+          ref={ref}
           className={`${styles.mobileBtn} ${
             mobileMenu && styles.mobileBtnActive
           }`}
@@ -36,7 +42,7 @@ const UserHeaderNav = () => {
       >
         <NavLink to="/conta" end>
           <MinhasFotos />
-          {mobile && 'MinhasFotos'}
+          {mobile && 'Minha Conta'}
         </NavLink>
         <NavLink to="/conta/estatisticas">
           <Estatisticas />
