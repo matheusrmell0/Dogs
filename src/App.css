@@ -34,6 +34,7 @@ a {
 img {
   display: block;
   max-width: 100%;
+  overflow: hidden;
 }
 button,
 input {
@@ -84,8 +85,13 @@ button:disabled::after {
   bottom: 4px;
   left: -5px;
 }
+.containersingle {
+  max-width: 50rem;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
 .container {
-  max-width: 80rem;
+  max-width: 70rem;
   padding: 0 1rem;
   margin: 0 auto;
 }

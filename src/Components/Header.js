@@ -15,7 +15,7 @@ const Header = () => {
         </Link>
         {data ? (
           <Link
-            style={{ textTransform: 'capitalize', fontWeight: 'bold' }}
+            style={{fontWeight: 'bold' }}
             className={styles.login}
             to="/conta"
           >

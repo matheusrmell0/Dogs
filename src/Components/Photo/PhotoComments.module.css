@@ -3,6 +3,11 @@
   word-break: break-word;
   padding: 0 2rem;
 }
+
+.single.comments{
+  padding: 0px;
+}
+
 .comments li {
   background: #eee;
   padding: 0.8rem 1rem;

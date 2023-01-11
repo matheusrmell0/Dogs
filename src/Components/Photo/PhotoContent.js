@@ -6,7 +6,7 @@ import PhotoDelete from './PhotoDelete';
 import { UserContext } from '../../UserContext';
 import Image from '../Helper/Image';
 
-const PhotoContent = ({ data }) => {
+const PhotoContent = ({ data, single }) => {
   const user = React.useContext(UserContext);
   const { photo, comments } = data;
   const [idade, setIdade] = React.useState(null);
@@ -19,7 +19,7 @@ const PhotoContent = ({ data }) => {
   }, [photo.idade]);
 
   return (
-    <div className={`${styles.photo}`}>
+    <div className={`${styles.photo} ${single ? styles.single : ''}`}>
       <div className={`${styles.img}`}>
         <Image src={photo.src} alt={photo.title}/>
       </div>
@@ -46,7 +46,7 @@ const PhotoContent = ({ data }) => {
           </ul>
         </div>
       </div>
-      <PhotoComments comments={comments} id={photo.id} />
+      <PhotoComments single={single} comments={comments} id={photo.id} />
     </div>
   );
 };

@@ -14,17 +14,22 @@ const PhotoComments = (props) => {
 
   return (
     <>
-      <ul ref={commentsSection} className={`${styles.comments} animeBotton`}>
+      <ul
+        ref={commentsSection}
+        className={`${styles.comments} ${
+          props.single ? styles.single : ''
+        } animeBotton`}
+      >
         {comments.map((comment) => (
-          <li className='animeLeft' key={comment.comment_ID}>
+          <li className="animeLeft" key={comment.comment_ID}>
             <b>{comment.comment_author}: </b>
             <span>{comment.comment_content}</span>
-            <br/>
+            <br />
             <span className={`${styles.date}`}>{comment.comment_date}</span>
           </li>
         ))}
       </ul>
-      {login && <PhotoCommentsForm setComments={setComments} {...props} />}
+      {login && <PhotoCommentsForm single={props.single} setComments={setComments} {...props} />}
     </>
   );
 };
