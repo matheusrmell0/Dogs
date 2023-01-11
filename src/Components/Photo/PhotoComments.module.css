@@ -1,0 +1,38 @@
+.comments {
+  overflow-y: auto;
+  word-break: break-word;
+  padding: 0 2rem;
+}
+.comments li {
+  background: #eee;
+  padding: 0.8rem 1rem;
+  border-radius: 0.4rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.date {
+  font-family: var(--type-second);
+  display: none;
+  font-size: 0.75rem;
+  margin: 0;
+  margin-top: 0.2rem;
+  padding: 0;
+  line-height: 1.2;
+}
+
+.comments li:focus .date,
+.comments li:hover .date {
+  display: block;
+  animation: focus .6s ease-in-out;
+}
+
+
+@keyframes focus {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

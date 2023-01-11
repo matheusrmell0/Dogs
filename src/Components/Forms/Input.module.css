@@ -21,8 +21,8 @@
 .label{
 display: block;
 font-size: 1rem;
-line-height: 1;
-padding-bottom: .5rem;
+line-height: 1.4;
+padding-bottom: .1rem;
 }
 .error{
   color: #f31;

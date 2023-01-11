@@ -89,6 +89,9 @@ button:disabled::after {
   padding: 0 1rem;
   margin: 0 auto;
 }
+.mainContainer{
+  margin-top: 4rem;
+}
 .error {
   color: #f31;
   width: max-content;
@@ -103,6 +106,19 @@ button:disabled::after {
 }
 
 @keyframes animeLeft {
+  to {
+    opacity: initial;
+    transform: initial;
+  }
+}
+
+.animeBotton {
+  opacity: 0;
+  transform: translateY(-25px);
+  animation: animeBotton 1s forwards;
+}
+
+@keyframes animeBotton {
   to {
     opacity: initial;
     transform: initial;
