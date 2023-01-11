@@ -12,8 +12,6 @@ const PhotoComments = (props) => {
     commentsSection.current.scrollTop = commentsSection.current.scrollHeight;
   }, [comments]);
 
-  console.log(comments)
-
   return (
     <>
       <ul ref={commentsSection} className={`${styles.comments} animeBotton`}>

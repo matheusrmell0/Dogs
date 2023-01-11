@@ -104,3 +104,16 @@ export function COMMENT_POST(id, comment, token) {
     },
   };
 }
+
+// Manda pra API o id do usuario e o token de validação para deletar a foto com id especifico
+export function PHOTO_DELETE(id, token) {
+  return {
+    url: `${API_URL}/api/photo/${id}`,
+    options: {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    },
+  };
+}
