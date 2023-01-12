@@ -5,14 +5,14 @@
   margin-bottom: 2rem;
 }
 
-.graphs p{
+.subtitle {
   font-family: var(--type-second);
   font-size: 1.7rem;
 }
 
-.graphs p span{
+.span {
   padding: 0.5rem 1.2rem;
-  border-radius: .4rem;
+  border-radius: 0.4rem;
   background: #eee;
   font-family: var(--type-first);
   font-size: 1.9rem;
@@ -38,5 +38,12 @@
   }
   .total {
     grid-column: 1;
+  }
+  .subtitle {
+    font-size: 1.4rem;
+  }
+  .span {
+    padding: 0.4rem 0.6rem;
+    font-size: 1.2rem;
   }
 }

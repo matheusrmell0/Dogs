@@ -32,7 +32,7 @@ const LoginCreate = () => {
     <Head title="Criar conta" desc="Página para criação de um novo usuário" />
       {loading && <Loading />}
       <section className={`animeLeft`}>
-        <h1 className={`title`}>Cadastre-se</h1>
+        <h1 className={`title titlepassword`}>Cadastre-se</h1>
         <form onSubmit={handleSubmit}>
           <Input
             label="Usuário"

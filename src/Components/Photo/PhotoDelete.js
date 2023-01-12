@@ -14,7 +14,7 @@ const PhotoDelete = ({ id }) => {
     const { response } = await request(url, options);
 
     if (response.ok) {
-      navigate('home');
+      navigate('/');
     } else {
       alert(error);
     }
