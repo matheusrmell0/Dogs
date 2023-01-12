@@ -95,7 +95,7 @@ button:disabled::after {
   padding: 0 1rem;
   margin: 0 auto;
 }
-.mainContainer{
+.mainContainer {
   margin-top: 2rem;
 }
 .error {
@@ -128,5 +128,32 @@ button:disabled::after {
   to {
     opacity: initial;
     transform: initial;
+  }
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh + 8rem);
+}
+.MainApp {
+  flex: 1;
+}
+
+.VictoryContainer {
+  height: initial !important;
+}
+
+@media (max-width: 40rem) {
+  .container {
+    max-width: 40rem;
+    padding: 0 1rem;
+    margin: 0 auto;
+  }
+  .headerTitle{
+    font-size: calc(1.7rem);
+  }
+  .titlepassword{
+    font-size: calc(2.4rem);
   }
 }

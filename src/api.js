@@ -131,3 +131,30 @@ export function PASSWORD_LOST(body) {
     },
   };
 }
+
+// Manda pra API a autorizacao para mudança de senha
+export function PASSWORD_RESET(body) {
+  return {
+    url: `${API_URL}/api/password/reset`,
+    options: {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    },
+  };
+}
+
+// Puxa da api informaçoes sobre estatisticas
+export function GET_STATS(token) {
+  return {
+    url: `${API_URL}/api/stats`,
+    options: {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    },
+  };
+}

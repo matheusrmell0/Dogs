@@ -5,6 +5,7 @@ import useFetch from '../../Hooks/useFetch';
 import Error from '../Helper/Error';
 import Loading from '../Helper/Loading';
 import PhotoContent from './PhotoContent';
+import Head from '../Helper/Head';
 
 const Photo = () => {
   const { data, error, loading, request } = useFetch();
@@ -22,9 +23,12 @@ const Photo = () => {
   if (error) return <Error error={error} />;
   if (data)
     return (
-      <section className={`containersingle mainContainer animeBotton`}>
-        <PhotoContent single={true} data={data} />
-      </section>
+      <>
+        <Head title={data.photo.title} desc={`Foto da petzinha ${data.photo.title}`}/>
+        <section className={`containersingle mainContainer animeBotton`}>
+          <PhotoContent single={true} data={data} />
+        </section>
+      </>
     );
   else return null;
 };

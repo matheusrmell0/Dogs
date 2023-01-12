@@ -5,6 +5,7 @@ import useForm from '../../Hooks/useForm';
 import useFetch from '../../Hooks/useFetch';
 import Error from '../Helper/Error';
 import { PASSWORD_LOST } from '../../api';
+import Head from '../Helper/Head';
 
 const LoginPasswordLost = () => {
   const login = useForm();
@@ -22,22 +23,41 @@ const LoginPasswordLost = () => {
   }
 
   return (
-    <section>
-      <h1 className="title">Perdeu a senha?</h1>
-      {data ? (
-        <p style={{fontFamily: 'var(--type-second)', fontSize: '1.5rem', color: '#4c1'}}>{data}</p>
-      ) : (
-        <form onSubmit={handleSubmit}>
-          <Input {...login} name="email" label="Email | Usuário" type="text" />
-          {loading ? (
-            <Button disabled >Enviando...</Button>
-          ) : (
-            <Button>Enviar email</Button>
-          )}
-        </form>
-      )}
-      <Error error={error} />
-    </section>
+    <>
+      <Head
+        title="Resetar senha?"
+        desc="Página para resetar a senha do usuário"
+      />
+      <section className={`animeLeft`}>
+        <h1 className="title titlepassword">Perdeu a senha?</h1>
+        {data ? (
+          <p
+            style={{
+              fontFamily: 'var(--type-second)',
+              fontSize: '1.5rem',
+              color: '#4c1',
+            }}
+          >
+            {data}
+          </p>
+        ) : (
+          <form onSubmit={handleSubmit}>
+            <Input
+              {...login}
+              name="email"
+              label="Email | Usuário"
+              type="text"
+            />
+            {loading ? (
+              <Button disabled>Enviando...</Button>
+            ) : (
+              <Button>Enviar email</Button>
+            )}
+          </form>
+        )}
+        <Error error={error} />
+      </section>
+    </>
   );
 };
 

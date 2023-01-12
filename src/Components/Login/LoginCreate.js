@@ -7,6 +7,7 @@ import { UserContext } from '../../UserContext';
 import useFetch from '../../Hooks/useFetch';
 import Error from '../Helper/Error';
 import Loading from '../Helper/Loading';
+import Head from '../Helper/Head';
 
 const LoginCreate = () => {
   const { request, loading, error } = useFetch();
@@ -28,6 +29,7 @@ const LoginCreate = () => {
 
   return (
     <>
+    <Head title="Criar conta" desc="Página para criação de um novo usuário" />
       {loading && <Loading />}
       <section className={`animeLeft`}>
         <h1 className={`title`}>Cadastre-se</h1>

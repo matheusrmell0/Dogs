@@ -12,30 +12,34 @@ import Photo from './Components/Photo/Photo';
 import UserProfile from './Components/User/UserProfile';
 import NotFound from './Components/NotFound';
 
-const App = () => {   
+const App = () => {
   return (
     <>
-      <BrowserRouter>
-        <UserStorage>
-          <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="login/*" element={<Login />} />
-            <Route
-              path="conta/*"
-              element={
-                <ProtectedRoute route={'/login'}>
-                  <User />
-                </ProtectedRoute>
-              }
-            />
-            <Route path="foto/:id" element={<Photo />} />
-            <Route path="perfil/:user" element={<UserProfile />} />
-            <Route path="*" element={<NotFound/>} />
-          </Routes>
-          <Footer />
-        </UserStorage>
-      </BrowserRouter>
+      <div className={`App`}>
+        <BrowserRouter>
+          <UserStorage>
+            <Header />
+            <main className={`MainApp`}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="login/*" element={<Login />} />
+                <Route
+                  path="conta/*"
+                  element={
+                    <ProtectedRoute route={'/login'}>
+                      <User />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route path="foto/:id" element={<Photo />} />
+                <Route path="perfil/:user" element={<UserProfile />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </main>
+            <Footer />
+          </UserStorage>
+        </BrowserRouter>
+      </div>
     </>
   );
 };
