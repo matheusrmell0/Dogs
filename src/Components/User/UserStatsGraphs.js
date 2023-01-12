@@ -24,7 +24,7 @@ const UserStatsGraphs = ({ data }) => {
     <section className={`${styles.graphs} animeLeft`}>
       <div className={`animeBottom ${styles.total} ${styles.graphItem}`}>
         <div className={`animeLeft ${styles.subtitle}`}>
-          🐶 Acessos totais: <span className={`animeBottom ${styles.span}`}>{total}</span>
+          🟢 Acessos: <span className={`animeBottom ${styles.span}`}>{total}</span>
         </div>
       </div>
       <div className={styles.graphItem}>

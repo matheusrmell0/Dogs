@@ -2,3 +2,10 @@
   max-width: 70rem;
   margin: auto;
 }
+@media (max-width: 40rem) {
+  .profile{
+    padding: 0rem 1rem;
+    max-width: 23rem;
+    margin: auto;
+  }
+}

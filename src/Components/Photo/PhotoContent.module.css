@@ -10,6 +10,7 @@
   opacity: 0;
   transform: scale(0.7);
   animation: scaleUp 0.2s forwards;
+  
 }
 @keyframes scaleUp {
   to {
@@ -19,7 +20,7 @@
 }
 
 .details {
-  padding: 2rem 2rem 0 2rem;
+  padding: 2rem 4rem 0 2rem;
 }
 .img {
   grid-row: 1/4;
@@ -87,4 +88,18 @@
 }
 .single .details {
   padding: 1rem 0px 0px 0px;
+}
+
+@media (max-width: 40rem) {
+  .attributes li {
+    margin-right: 2rem;
+    font-size: 0.8rem;
+  }
+  .attributes li::before {
+    height: 20px;
+    top: 5px;
+  }
+  .title{
+    font-size: 2.2rem;
+  }
 }

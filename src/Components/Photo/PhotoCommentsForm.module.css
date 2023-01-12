@@ -71,3 +71,19 @@
     opacity: 1;
   }
 }
+
+@media (max-width: 40rem) {
+  .textarea {
+    display: block;
+    width: 90%;
+    font-size: 0.875rem;
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+    margin-left: 0.5rem;
+  }
+  .button {
+    font-size: 1rem;
+    padding: 0;
+    margin-right: 2.5rem;
+  }
+}

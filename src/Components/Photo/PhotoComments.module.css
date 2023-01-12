@@ -4,7 +4,7 @@
   padding: 0 2rem;
 }
 
-.single.comments{
+.single.comments {
   padding: 0px;
 }
 
@@ -29,9 +29,8 @@
 .comments li:focus .date,
 .comments li:hover .date {
   display: block;
-  animation: focus .6s ease-in-out;
+  animation: focus 0.6s ease-in-out;
 }
-
 
 @keyframes focus {
   from {
@@ -39,5 +38,21 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+@media (max-width: 40rem) {
+  .comments {
+    overflow-y: auto;
+    word-break: break-word;
+    padding: 0 2rem;
+    max-width: 18rem;
+  }
+  .comments li {
+    background: #eee;
+    padding: 0.5rem 1rem;
+    border-radius: 0.4rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
   }
 }

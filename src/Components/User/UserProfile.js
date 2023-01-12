@@ -11,7 +11,7 @@ const UserProfile = () => {
     <>
       <Head title={`@${user}`} desc={`Página do usuário ${user}`} />
       <section className={`${styles.profile}`}>
-        <h1 className="title">@{user}</h1>
+        <h1 className="title headerTitle">@{user}</h1>
         <Feed user={user} />
       </section>
     </>

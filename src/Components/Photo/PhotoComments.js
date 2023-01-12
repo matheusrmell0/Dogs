@@ -22,7 +22,7 @@ const PhotoComments = (props) => {
       >
         {comments.map((comment) => (
           <li className="animeLeft" key={comment.comment_ID}>
-            <b>{comment.comment_author}: </b>
+            <b >{comment.comment_author}: </b>
             <span>{comment.comment_content}</span>
             <br />
             <span className={`${styles.date}`}>{comment.comment_date}</span>

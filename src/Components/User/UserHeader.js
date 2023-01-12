@@ -14,10 +14,10 @@ const UserHeader = () => {
         setTitle('Estatísticas 📊');
         break;
       case '/conta/postar':
-        setTitle('Poste uma foto 🐶');
+        setTitle('Poste uma foto ✔️');
         break;
       default:
-        setTitle('Minha conta ✅');
+        setTitle('Minha conta 🦴');
     }
   }, [location]);
 
