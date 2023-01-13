@@ -31,7 +31,7 @@ const LoginForm = () => {
           <Input name="username" label="Usuário" type="text" {...username} />
           <Input name="password" label="Senha" type="password" {...password} />
           {loading ? (
-            <Button disabled>Entrando...</Button>
+            <Button disabled>Entrando... 😊</Button>
           ) : (
             <div className={styles.logEntrar}>
               <Button>Entrar</Button>

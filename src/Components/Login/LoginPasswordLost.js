@@ -29,7 +29,7 @@ const LoginPasswordLost = () => {
         desc="Página para resetar a senha do usuário"
       />
       <section className={`animeLeft`}>
-        <h1 className="title titlepassword">Perdeu a senha?</h1>
+        <h1 className="title titlepassword headerTitle">Perdeu a senha?</h1>
         {data ? (
           <p
             style={{

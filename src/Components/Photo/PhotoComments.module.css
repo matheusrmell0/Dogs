@@ -47,6 +47,7 @@
     word-break: break-word;
     padding: 0 2rem;
     max-width: 18rem;
+    margin-bottom: 2rem;
   }
   .comments li {
     background: #eee;
