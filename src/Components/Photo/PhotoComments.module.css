@@ -45,9 +45,9 @@
   .comments {
     overflow-y: auto;
     word-break: break-word;
-    padding: 0 2rem;
+    padding: 0 1.5rem;
     max-width: 18rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
   }
   .comments li {
     background: #eee;
