@@ -21,5 +21,7 @@ O site manipula o desenvolvimento de rotas com React Router dom, Redux, hooks pe
 ✔ PropTypes
 ✔ Image Skeleton
 ✔ CSS Modules
+✔ Redux
+✔ Currying
 ✔ Git 
 ✔ Redux
