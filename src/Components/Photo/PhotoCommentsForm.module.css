@@ -19,7 +19,7 @@
   padding: 0.5rem;
   border-radius: 0.4rem;
   background: #eee;
-  scale: 0.99;
+  scale: 0.98;
   transition: 0.2s;
 }
 .textarea:hover {
@@ -30,7 +30,7 @@
 }
 
 .textarea:focus {
-  scale: 1.01;
+  scale: 0.99;
   outline: none;
   border-color: #fb1;
   background: white;

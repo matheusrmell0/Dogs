@@ -1,21 +1,18 @@
 import React from 'react';
 import styles from './FeedModal.module.css';
-import useFetch from '../../Hooks/useFetch';
-import { PHOTO_GET } from '../../api';
 import Error from '../Helper/Error';
 import Loading from '../Helper/Loading';
 import PhotoContent from '../Photo/PhotoContent';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchPhoto } from '../../store/reducers/photo';
 
 const FeedModal = ({ photo, setModalPhoto }) => {
-  const { data, error, loading, request } = useFetch();
+  const dispatch = useDispatch();
+  const { data, error, loading } = useSelector((state) => state.photo);
 
   React.useEffect(() => {
-    async function fetchPhoto() {
-      const { url, options } = PHOTO_GET(photo.id);
-      await request(url, options);
-    }
-    fetchPhoto();
-  }, [photo, request]);
+    dispatch(fetchPhoto(photo.id));
+  }, [photo, dispatch]);
 
   return (
     <div
@@ -26,7 +23,7 @@ const FeedModal = ({ photo, setModalPhoto }) => {
     >
       {error && <Error error={error} />}
       {loading && <Loading />}
-      {data && <PhotoContent data={data} />}
+      {data && <PhotoContent/>}
     </div>
   );
 };

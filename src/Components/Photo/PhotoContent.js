@@ -5,10 +5,11 @@ import PhotoComments from './PhotoComments';
 import PhotoDelete from './PhotoDelete';
 import { UserContext } from '../../UserContext';
 import Image from '../Helper/Image';
+import { useSelector } from 'react-redux';
 
-const PhotoContent = ({ data, single }) => {
+const PhotoContent = ({ single }) => {
   const user = React.useContext(UserContext);
-  const { photo, comments } = data;
+  const { photo, comments } = useSelector(state => state.photo.data);
   const [idade, setIdade] = React.useState(null);
 
   React.useEffect(() => {
