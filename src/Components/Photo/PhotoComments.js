@@ -1,11 +1,11 @@
 import React from 'react';
-import { UserContext } from '../../UserContext';
 import PhotoCommentsForm from './PhotoCommentsForm';
 import styles from './PhotoComments.module.css';
+import { useSelector } from 'react-redux';
 
 const PhotoComments = (props) => {
   const commentsSection = React.useRef();
-  const { login } = React.useContext(UserContext);
+  const { data } = useSelector((state) => state.user);
   const [comments, setComments] = React.useState(() => props.comments);
 
   React.useEffect(() => {
@@ -22,14 +22,20 @@ const PhotoComments = (props) => {
       >
         {comments.map((comment) => (
           <li className="animeLeft" key={comment.comment_ID}>
-            <b >{comment.comment_author}: </b>
+            <b>{comment.comment_author}: </b>
             <span>{comment.comment_content}</span>
             <br />
             <span className={`${styles.date}`}>{comment.comment_date}</span>
           </li>
         ))}
       </ul>
-      {login && <PhotoCommentsForm single={props.single} setComments={setComments} {...props} />}
+      {data && (
+        <PhotoCommentsForm
+          single={props.single}
+          setComments={setComments}
+          {...props}
+        />
+      )}
     </>
   );
 };

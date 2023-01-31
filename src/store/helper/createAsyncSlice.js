@@ -37,6 +37,11 @@ const createAsyncSlice = (config) => {
         state.data = null;
         state.error = action.payload;
       },
+      resetStates(state) {
+        state.loading = false;
+        state.data = null;
+        state.error = null;
+      },
       // novos reducers caso necessário
       ...config.reducers,
     },
@@ -53,7 +58,7 @@ const createAsyncSlice = (config) => {
       const { url, options } = config.fetchConfig(payload);
       const response = await fetch(url, options);
       const data = await response.json();
-      if (response.ok === false) throw new Error(data.message);
+      if (response.ok === false) throw new Error('Usuário ou senha incorreta');
       return dispatch(fetchSuccess(data));
     } catch (error) {
       return dispatch(fetchError(error.message));

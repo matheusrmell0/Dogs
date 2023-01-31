@@ -3,13 +3,12 @@ import styles from './PhotoContent.module.css';
 import { Link } from 'react-router-dom';
 import PhotoComments from './PhotoComments';
 import PhotoDelete from './PhotoDelete';
-import { UserContext } from '../../UserContext';
 import Image from '../Helper/Image';
 import { useSelector } from 'react-redux';
 
 const PhotoContent = ({ single }) => {
-  const user = React.useContext(UserContext);
-  const { photo, comments } = useSelector(state => state.photo.data);
+  const { user } = useSelector((state) => state);
+  const { photo, comments } = useSelector((state) => state.photo.data);
   const [idade, setIdade] = React.useState(null);
 
   React.useEffect(() => {
@@ -22,7 +21,7 @@ const PhotoContent = ({ single }) => {
   return (
     <div className={`${styles.photo} ${single ? styles.single : ''}`}>
       <div className={`${styles.img}`}>
-        <Image src={photo.src} alt={photo.title}/>
+        <Image src={photo.src} alt={photo.title} />
       </div>
       <div className={`${styles.details}`}>
         <div>

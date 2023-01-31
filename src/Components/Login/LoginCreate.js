@@ -3,15 +3,16 @@ import Input from '../Forms/Input';
 import Button from '../Forms/Button';
 import useForm from '../../Hooks/useForm';
 import { USER_POST } from '../../api';
-import { UserContext } from '../../UserContext';
 import useFetch from '../../Hooks/useFetch';
 import Error from '../Helper/Error';
 import Loading from '../Helper/Loading';
 import Head from '../Helper/Head';
+import { useDispatch } from 'react-redux';
+import { userLogin } from '../../store/reducers/user';
 
 const LoginCreate = () => {
   const { request, loading, error } = useFetch();
-  const { userLogin } = React.useContext(UserContext);
+  const dispatch = useDispatch();
   const username = useForm();
   const email = useForm('email');
   const password = useForm();
@@ -24,12 +25,15 @@ const LoginCreate = () => {
       password: password.value,
     });
     const { response } = await request(url, options);
-    if (response.ok) userLogin(username.value, password.value);
+    if (response.ok)
+      dispatch(
+        userLogin({ username: username.value, password: password.value }),
+      );
   }
 
   return (
     <>
-    <Head title="Criar conta" desc="Página para criação de um novo usuário" />
+      <Head title="Criar conta" desc="Página para criação de um novo usuário" />
       {loading && <Loading />}
       <section className={`animeLeft`}>
         <h1 className={`title titlepassword`}>Cadastre-se</h1>
