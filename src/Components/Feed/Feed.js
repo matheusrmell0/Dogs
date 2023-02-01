@@ -2,11 +2,19 @@ import React from 'react';
 import FeedModal from './FeedModal';
 import FeedPhotos from './FeedPhotos';
 import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import { loadNewPhotos, resetFeedStates } from '../../store/reducers/feed';
+import Loading from '../Helper/Loading';
+import Error from '../Helper/Error';
 
 const Feed = ({ user }) => {
-  const [modalPhoto, setModalPhoto] = React.useState(null);
-  const [infinite, setInfinite] = React.useState(true);
-  const [pages, setPages] = React.useState([1]);
+  const { infinite, loading, error, list } = useSelector((state) => state.feed);
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    dispatch(resetFeedStates());
+    dispatch(loadNewPhotos({ user, total: 3 }));
+  }, [dispatch, user]);
 
   React.useEffect(() => {
     let wait = false;
@@ -14,9 +22,9 @@ const Feed = ({ user }) => {
     function infiniteScroll() {
       if (infinite) {
         const scroll = window.scrollY;
-        const height = (document.body.offsetHeight - window.innerHeight) * 0.80;
+        const height = (document.body.offsetHeight - window.innerHeight) * 0.8;
         if (scroll > height && !wait) {
-          setPages((prev) => [...prev, prev.length + 1]);
+          dispatch(loadNewPhotos({ user, total: 3 }));
           wait = true;
           setTimeout(() => {
             wait = false;
@@ -29,22 +37,27 @@ const Feed = ({ user }) => {
       events.forEach((event) =>
         window.removeEventListener(event, infiniteScroll),
       );
-  }, [infinite]);
+  }, [infinite, dispatch, user]);
 
   return (
     <div>
-      {modalPhoto && (
-        <FeedModal setModalPhoto={setModalPhoto} photo={modalPhoto} />
+      <FeedModal />
+
+      {list.length > 0 && <FeedPhotos />}
+      {loading && <Loading />}
+      {error && <Error error={error} />}
+
+      {!infinite && !user && (
+        <p
+          style={{
+            textAlign: 'center',
+            padding: '2rem 0 4rem 0',
+            color: '#888',
+          }}
+        >
+          Não existem mais postagens.
+        </p>
       )}
-      {pages.map((page) => (
-        <FeedPhotos
-          setInfinite={setInfinite}
-          key={page}
-          user={user}
-          page={page}
-          setModalPhoto={setModalPhoto}
-        />
-      ))}
     </div>
   );
 };

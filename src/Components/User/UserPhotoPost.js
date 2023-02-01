@@ -3,19 +3,21 @@ import Input from '../../Components/Forms/Input';
 import Button from '../../Components/Forms/Button';
 import styles from './UserPhotoPost.module.css';
 import useForm from '../../Hooks/useForm';
-import useFetch from '../../Hooks/useFetch';
 import Error from '../Helper/Error';
-import { PHOTO_POST } from '../../api';
 import { useNavigate } from 'react-router-dom';
 import Head from '../Helper/Head';
+import { fetchPhotoPost } from '../../store/reducers/photoPost';
+import { useDispatch, useSelector } from 'react-redux';
 
 const UserPhotoPost = () => {
+  const dispatch = useDispatch();
+  const { error, loading, data } = useSelector((state) => state.photoPost);
+  const { token } = useSelector((state) => state.token.data);
   const navigate = useNavigate();
   const nome = useForm();
   const peso = useForm('number');
   const idade = useForm('number');
   const [img, setImg] = React.useState({});
-  const { error, loading, data, request } = useFetch();
 
   React.useEffect(() => {
     if (data) navigate('/conta');
@@ -29,10 +31,8 @@ const UserPhotoPost = () => {
     formData.append('idade', idade.value);
     formData.append('peso', peso.value);
 
-    const token = window.localStorage.getItem('token');
     if (token) {
-      const { url, options } = PHOTO_POST(formData, token);
-      await request(url, options);
+      dispatch(fetchPhotoPost({ formData, token }));
     }
   }
 
@@ -45,7 +45,7 @@ const UserPhotoPost = () => {
 
   return (
     <>
-    <Head title='Poste sua foto' desc="Página de postagem de fotos"/>
+      <Head title="Poste sua foto" desc="Página de postagem de fotos" />
       <section className={`${styles.photoPost} animeLeft`}>
         <form onSubmit={handleSubmit}>
           <Input label="Nome" type="text" name="nome" id="nome" {...nome} />

@@ -5,7 +5,7 @@ import { ReactComponent as Dogs } from '../Assets/dogs.svg';
 import { useSelector } from 'react-redux';
 
 const Header = () => {
-  const { data } = useSelector(state => state.user)
+  const { data } = useSelector((state) => state.user);
 
   return (
     <header className={styles.header}>
@@ -15,7 +15,7 @@ const Header = () => {
         </Link>
         {data ? (
           <Link
-            style={{fontWeight: 'bold' }}
+            style={{ fontWeight: 'bold' }}
             className={styles.login}
             to="/conta"
           >

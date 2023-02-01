@@ -55,7 +55,7 @@ export function USER_POST(body) {
 }
 
 // Manda pra API um constructor formData com a imagem upada e os campos de dados
-export function PHOTO_POST(formData, token) {
+export function PHOTO_POST({ formData, token }) {
   return {
     url: `${API_URL}/api/photo`,
     options: {
