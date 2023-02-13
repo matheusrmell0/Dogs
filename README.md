@@ -6,7 +6,7 @@ Rede social para cachorros feito em React
 Aplicativo web com funcionalidades semelhantes a redes sociais como o Instagram.
 
 Esse projeto buscou o entendimento completo do React, com isso tudo foi criado do zero, sem a dependência de pacotes externos ou plugins.
-O site manipula o desenvolvimento de rotas com React Router dom, Redux, hooks personalizados, requisições endpoint via API, além de diversos componentes React e ES6+ puro.
+O site manipula o desenvolvimento de rotas com React Router dom, estado global da aplicação com Redux, hooks personalizados, requisições endpoint via API, além de diversos componentes React e ES6+ puro.
 
 
 ✔ Rest API 
